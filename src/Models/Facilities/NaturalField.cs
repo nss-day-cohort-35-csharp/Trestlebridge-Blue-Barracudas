@@ -1,30 +1,33 @@
 using System;
-using System.Text;
 using System.Collections.Generic;
+using System.Text;
 using Trestlebridge.Interfaces;
 
 //Ticket #29
-namespace Trestlebridge.Models.Facilities {
+namespace Trestlebridge.Models.Facilities
+{
     public class NaturalField : IFacility<INatural>
     {
-        private int _capacity = 12;
+        private int _capacity = 65;
         private Guid _id = Guid.NewGuid();
 
         private List<INatural> _plants = new List<INatural>();
 
-        public double Capacity {
-            get {
+        public double Capacity
+        {
+            get
+            {
                 return _capacity;
             }
         }
 
-        public void AddResource (INatural plant)
+        public void AddResource(INatural plant)
         {
             // TODO: implement this...
-            throw new NotImplementedException();
+            _plants.Add(plant);
         }
 
-        public void AddResource (List<INatural> plant) 
+        public void AddResource(List<INatural> plant)
         {
             // TODO: implement this...
             throw new NotImplementedException();
@@ -39,6 +42,13 @@ namespace Trestlebridge.Models.Facilities {
             this._plants.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
+        }
+        public double GetCount
+        {
+            get
+            {
+                return _plants.Count;
+            }
         }
     }
 }
