@@ -13,7 +13,7 @@ namespace Trestlebridge.Actions
             bool allFull = farm.ChickenHouses.All(house => house.GetCount == house.Capacity);
             if (allFull)
             {
-                Console.WriteLine("Duck houses are all full, press enter to continue");
+                Console.WriteLine("No facilities available, press enter to continue");
                 Console.ReadLine();
 
             }
@@ -24,7 +24,7 @@ namespace Trestlebridge.Actions
 
                 for (int i = 0; i < farm.ChickenHouses.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1}. Chicken House  (Chickens: {farm.ChickenHouses[i].GetCount})");
+                    Console.WriteLine($"{i + 1}. Chicken House: {farm.ChickenHouses[i].GetCount} of {farm.ChickenHouses[i].Capacity})");
                 }
 
                 Console.WriteLine();

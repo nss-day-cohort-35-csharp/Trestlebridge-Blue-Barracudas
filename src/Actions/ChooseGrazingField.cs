@@ -13,7 +13,7 @@ namespace Trestlebridge.Actions
             bool allFull = farm.GrazingFields.All(field => field.GetCount == field.Capacity);
             if (allFull)
             {
-                Console.WriteLine("Facilities are all full, press enter to continue");
+                Console.WriteLine("No facilities available, press enter to continue");
                 Console.ReadLine();
 
             }
@@ -24,7 +24,7 @@ namespace Trestlebridge.Actions
 
                 for (int i = 0; i < farm.GrazingFields.Count; i++)
                 {
-                    Console.Write($"{i + 1}. Grazing Field (");
+                    Console.Write($"{i + 1}. Grazing Field: Total: {farm.GrazingFields[i].GetCount} of {farm.GrazingFields[i].Capacity} (");
                     farm.GrazingFields[i].listAnimals();
                     Console.WriteLine(")");
                 }
