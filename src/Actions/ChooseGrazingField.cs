@@ -10,28 +10,61 @@ namespace Trestlebridge.Actions
     {
         public static void CollectInput(Farm farm, IGrazing animal)
         {
-            Utils.Clear();
-
-            for (int i = 0; i < farm.GrazingFields.Count; i++)
+            bool allFull = farm.GrazingFields.All(field => field.GetCount == field.Capacity);
+            if (allFull)
             {
-                Console.WriteLine($"{i + 1}. Grazing Field");
+                Console.WriteLine("Facilities are all full, press enter to continue");
+                Console.ReadLine();
+
             }
+            while (!allFull)
+            {
 
-            Console.WriteLine();
+                Utils.Clear();
 
-            // How can I output the type of animal chosen here?
-            Console.WriteLine($"Place the animal where?");
+                for (int i = 0; i < farm.GrazingFields.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. Grazing Field");
+                }
 
-            Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine());
+                Console.WriteLine();
 
-            farm.GrazingFields[choice].AddResource(animal);
+                // How can I output the type of animal chosen here?
+                Console.WriteLine($"Place the animal where?");
 
-            /*
-                Couldn't get this to work. Can you?
-                Stretch goal. Only if the app is fully functional.
-             */
-            // farm.PurchaseResource<IGrazing>(animal, choice);
+                Console.Write("> ");
+                try
+                {
+                    int choice = Int32.Parse(Console.ReadLine());
+                    if (farm.GrazingFields[choice - 1].GetCount < farm.GrazingFields[choice - 1].Capacity)
+                    {
+                        farm.GrazingFields[choice - 1].AddResource(animal);
+                        break;
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("This facility is full, please choose another one");
+                        Console.WriteLine("Press enter to continue");
+                        Console.ReadLine();
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Wrong input, please chose another.");
+                    Console.WriteLine("Press enter to continue");
+                    Console.ReadLine();
+
+                }
+
+                /*
+                    Couldn't get this to work. Can you?
+                    Stretch goal. Only if the app is fully functional.
+                 */
+                // farm.PurchaseResource<IGrazing>(animal, choice);
+            }
 
         }
     }

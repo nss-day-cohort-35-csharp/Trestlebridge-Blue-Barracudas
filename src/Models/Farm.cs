@@ -24,6 +24,18 @@ namespace Trestlebridge.Models
                 case "Cow":
                     GrazingFields[index].AddResource((IGrazing)resource);
                     break;
+                case "Ostrich":
+                    GrazingFields[index].AddResource((IGrazing)resource);
+                    break;
+                case "Pig":
+                    GrazingFields[index].AddResource((IGrazing)resource);
+                    break;
+                case "Sheep":
+                    GrazingFields[index].AddResource((IGrazing)resource);
+                    break;
+                case "Goat":
+                    GrazingFields[index].AddResource((IGrazing)resource);
+                    break;
                 default:
                     break;
             }
@@ -63,8 +75,8 @@ namespace Trestlebridge.Models
             catch (Exception ex)
             {
                 Console.WriteLine("Could not add a natural field.");
-                     Console.WriteLine("Press enter to continue.");
-            Console.ReadLine();
+                Console.WriteLine("Press enter to continue.");
+                Console.ReadLine();
             }
 
         }
@@ -82,8 +94,8 @@ namespace Trestlebridge.Models
             catch (Exception ex)
             {
                 Console.WriteLine("Could not add a plowed field.");
-                     Console.WriteLine("Press enter to continue.");
-            Console.ReadLine();
+                Console.WriteLine("Press enter to continue.");
+                Console.ReadLine();
             }
 
         }
