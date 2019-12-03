@@ -11,6 +11,7 @@ namespace Trestlebridge.Models
         public List<GrazingField> GrazingFields { get; } = new List<GrazingField>();
         public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
         public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
+        public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
 
         /*
             This method must specify the correct product interface of the
@@ -99,6 +100,25 @@ namespace Trestlebridge.Models
             }
 
         }
+        public void AddChickenHouse(ChickenHouse chickenHouse)
+        {
+            try
+            {
+                ChickenHouses.Add(chickenHouse);
+                //Ticket #29
+                Console.WriteLine("A new chicken house has been created!");
+                Console.WriteLine("Press enter to continue.");
+                Console.ReadLine();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Could not add a chicken house.");
+                Console.WriteLine("Press enter to continue.");
+                Console.ReadLine();
+            }
+
+        }
 
         public override string ToString()
         {
@@ -107,6 +127,7 @@ namespace Trestlebridge.Models
             GrazingFields.ForEach(gf => report.Append(gf));
             NaturalFields.ForEach(nf => report.Append(nf));
             PlowedFields.ForEach(pf => report.Append(pf));
+            ChickenHouses.ForEach(ch => report.Append(ch));
 
             return report.ToString();
         }
