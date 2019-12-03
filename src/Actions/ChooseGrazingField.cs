@@ -33,16 +33,27 @@ namespace Trestlebridge.Actions
                 Console.WriteLine($"Place the animal where?");
 
                 Console.Write("> ");
-                int choice = Int32.Parse(Console.ReadLine());
-                if (farm.GrazingFields[choice - 1].GetCount < farm.GrazingFields[choice - 1].Capacity)
+                try
                 {
-                    farm.GrazingFields[choice - 1].AddResource(animal);
-                    break;
+                    int choice = Int32.Parse(Console.ReadLine());
+                    if (farm.GrazingFields[choice - 1].GetCount < farm.GrazingFields[choice - 1].Capacity)
+                    {
+                        farm.GrazingFields[choice - 1].AddResource(animal);
+                        break;
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("This facility is full, please choose another one");
+                        Console.WriteLine("Press enter to continue");
+                        Console.ReadLine();
+
+                    }
 
                 }
-                else
+                catch (Exception ex)
                 {
-                    Console.WriteLine("This facility is full, please choose another one");
+                    Console.WriteLine("Wrong input, please chose another.");
                     Console.WriteLine("Press enter to continue");
                     Console.ReadLine();
 
