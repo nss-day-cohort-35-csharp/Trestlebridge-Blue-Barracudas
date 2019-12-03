@@ -12,6 +12,7 @@ namespace Trestlebridge.Models
         public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
         public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
         public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
+        public List<DuckHouse> DuckHouses { get; } = new List<DuckHouse>();
 
         /*
             This method must specify the correct product interface of the
@@ -36,6 +37,12 @@ namespace Trestlebridge.Models
                     break;
                 case "Goat":
                     GrazingFields[index].AddResource((IGrazing)resource);
+                    break;
+                case "Chicken":
+                    ChickenHouses[index].AddResource((IChicken)resource);
+                    break;
+                case "Duck":
+                    DuckHouses[index].AddResource((IDuck)resource);
                     break;
                 default:
                     break;
@@ -119,6 +126,25 @@ namespace Trestlebridge.Models
             }
 
         }
+        public void AddDuckHouse(DuckHouse duckHouse)
+        {
+            try
+            {
+                DuckHouses.Add(duckHouse);
+                //Ticket #29
+                Console.WriteLine("A new duck house has been created!");
+                Console.WriteLine("Press enter to continue.");
+                Console.ReadLine();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Could not add a duck house.");
+                Console.WriteLine("Press enter to continue.");
+                Console.ReadLine();
+            }
+
+        }
 
         public override string ToString()
         {
@@ -128,6 +154,7 @@ namespace Trestlebridge.Models
             NaturalFields.ForEach(nf => report.Append(nf));
             PlowedFields.ForEach(pf => report.Append(pf));
             ChickenHouses.ForEach(ch => report.Append(ch));
+            DuckHouses.ForEach(dh => report.Append(dh));
 
             return report.ToString();
         }
