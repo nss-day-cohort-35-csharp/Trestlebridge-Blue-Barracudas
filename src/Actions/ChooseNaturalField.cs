@@ -6,14 +6,14 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Actions
 {
-    public class ChooseGrazingField
+    public class ChooseNaturalField
     {
-        public static void CollectInput(Farm farm, IGrazing animal)
+        public static void CollectInput(Farm farm, INatural plant)
         {
-            bool allFull = farm.GrazingFields.All(field => field.GetCount == field.Capacity);
+            bool allFull = farm.NaturalFields.All(field => field.GetCount == field.Capacity);
             if (allFull)
             {
-                Console.WriteLine("No facilities available, press enter to continue");
+                Console.WriteLine("Facilities are all full, press enter to continue");
                 Console.ReadLine();
 
             }
@@ -22,30 +22,29 @@ namespace Trestlebridge.Actions
 
                 Utils.Clear();
 
-                for (int i = 0; i < farm.GrazingFields.Count; i++)
+                for (int i = 0; i < farm.NaturalFields.Count; i++)
                 {
-<<<<<<< HEAD
-                    Console.WriteLine($"{farm.GrazingFields[i]} yeahahhahahah boiii");
-                    Console.WriteLine($"{i + 1}. Grazing Field");
-=======
-                    Console.Write($"{i + 1}. Grazing Field: Total: {farm.GrazingFields[i].GetCount} of {farm.GrazingFields[i].Capacity} (");
-                    farm.GrazingFields[i].listAnimals();
+                    Console.Write($"{i + 1}. Natural Field: Total: {farm.NaturalFields[i].GetCount} of {farm.NaturalFields[i].Capacity} (");
+
+                    farm.NaturalFields[i].listPlants();
+
                     Console.WriteLine(")");
->>>>>>> 97e0514f6f726c31db939ec6e08a0494b65d9cf8
                 }
 
                 Console.WriteLine();
 
                 // How can I output the type of animal chosen here?
-                Console.WriteLine($"Place the animal where?");
+                Console.WriteLine($"Place the plants where?");
 
                 Console.Write("> ");
                 try
                 {
                     int choice = Int32.Parse(Console.ReadLine());
-                    if (farm.GrazingFields[choice - 1].GetCount < farm.GrazingFields[choice - 1].Capacity)
+                    if (farm.NaturalFields[choice - 1].GetCount < farm.NaturalFields[choice - 1].Capacity)
                     {
-                        farm.GrazingFields[choice - 1].AddResource(animal);
+                        farm.NaturalFields[choice - 1].AddResource(plant);
+                        Console.WriteLine("You planted in a Natural Field, press Enter to continue");
+                        Console.ReadLine();
                         break;
 
                     }

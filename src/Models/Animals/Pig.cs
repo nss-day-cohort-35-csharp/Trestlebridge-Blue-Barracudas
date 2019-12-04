@@ -36,5 +36,6 @@ namespace Trestlebridge.Models.Animals
         {
             return $"Pig {this._shortId}. Hoinchk!";
         }
+        public string returnAnimalType{get{return Type;}}
     }
 }

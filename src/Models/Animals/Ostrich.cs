@@ -43,5 +43,6 @@ namespace Trestlebridge.Models.Animals
         {
             return _eggsProduced;
         }
+        public string returnAnimalType{get{return Type;}}
     }
 }

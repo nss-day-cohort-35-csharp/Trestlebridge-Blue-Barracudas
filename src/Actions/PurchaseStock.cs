@@ -15,6 +15,8 @@ namespace Trestlebridge.Actions
             Console.WriteLine("3. Pig");
             Console.WriteLine("4. Sheep");
             Console.WriteLine("5. Goat");
+            Console.WriteLine("6. Chicken");
+            Console.WriteLine("7. Duck");
 
             Console.WriteLine();
             Console.WriteLine("What are you buying today?");
@@ -23,7 +25,7 @@ namespace Trestlebridge.Actions
             var choiceInput = Console.ReadLine();
             int choice;
 
-            while (!(int.TryParse(choiceInput, out choice) && Convert.ToInt32(choiceInput) > 0 && Convert.ToInt32(choiceInput) < 6))
+            while (!(int.TryParse(choiceInput, out choice) && Convert.ToInt32(choiceInput) > 0 && Convert.ToInt32(choiceInput) < 8))
             {
                 Console.WriteLine("Please type a number");
                 choiceInput = Console.ReadLine();
@@ -44,6 +46,12 @@ namespace Trestlebridge.Actions
                     break;
                 case 5:
                     ChooseGrazingField.CollectInput(farm, new Goat());
+                    break;
+                case 6:
+                    ChooseChickenHouse.CollectInput(farm, new Chicken());
+                    break;
+                case 7:
+                    ChooseDuckHouse.CollectInput(farm, new Duck());
                     break;
                 default:
                     break;

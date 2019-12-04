@@ -2,7 +2,7 @@ namespace Trestlebridge.Interfaces
 {
     public interface IPlowed
     {
-        //double GrassPerDay { get; set; }
-        //void Graze();
+        string returnPlantTypePlowed { get; }
+        // lavorare la terra
     }
 }

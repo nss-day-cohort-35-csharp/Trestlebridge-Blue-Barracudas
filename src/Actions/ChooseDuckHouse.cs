@@ -6,11 +6,11 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Actions
 {
-    public class ChooseGrazingField
+    public class ChooseDuckHouse
     {
-        public static void CollectInput(Farm farm, IGrazing animal)
+        public static void CollectInput(Farm farm, IDuck duck)
         {
-            bool allFull = farm.GrazingFields.All(field => field.GetCount == field.Capacity);
+            bool allFull = farm.DuckHouses.All(house => house.GetCount == house.Capacity);
             if (allFull)
             {
                 Console.WriteLine("No facilities available, press enter to continue");
@@ -22,36 +22,29 @@ namespace Trestlebridge.Actions
 
                 Utils.Clear();
 
-                for (int i = 0; i < farm.GrazingFields.Count; i++)
+                for (int i = 0; i < farm.DuckHouses.Count; i++)
                 {
-<<<<<<< HEAD
-                    Console.WriteLine($"{farm.GrazingFields[i]} yeahahhahahah boiii");
-                    Console.WriteLine($"{i + 1}. Grazing Field");
-=======
-                    Console.Write($"{i + 1}. Grazing Field: Total: {farm.GrazingFields[i].GetCount} of {farm.GrazingFields[i].Capacity} (");
-                    farm.GrazingFields[i].listAnimals();
-                    Console.WriteLine(")");
->>>>>>> 97e0514f6f726c31db939ec6e08a0494b65d9cf8
+                    Console.WriteLine($"{i + 1}. Duck House: {farm.DuckHouses[i].GetCount} of {farm.DuckHouses[i].Capacity}");
                 }
 
                 Console.WriteLine();
 
                 // How can I output the type of animal chosen here?
-                Console.WriteLine($"Place the animal where?");
+                Console.WriteLine($"Place the duck where?");
 
                 Console.Write("> ");
                 try
                 {
                     int choice = Int32.Parse(Console.ReadLine());
-                    if (farm.GrazingFields[choice - 1].GetCount < farm.GrazingFields[choice - 1].Capacity)
+                    if (farm.DuckHouses[choice - 1].GetCount < farm.DuckHouses[choice - 1].Capacity)
                     {
-                        farm.GrazingFields[choice - 1].AddResource(animal);
+                        farm.DuckHouses[choice - 1].AddResource(duck);
                         break;
 
                     }
                     else
                     {
-                        Console.WriteLine("This facility is full, please choose another one");
+                        Console.WriteLine("This duck house is full, please choose another one");
                         Console.WriteLine("Press enter to continue");
                         Console.ReadLine();
 
