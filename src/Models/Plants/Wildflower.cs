@@ -15,7 +15,7 @@ namespace Trestlebridge.Models.Plants
 
         public override string ToString()
         {
-            return $"Sesame. Yum!";
+            return $"Wildflowers. Make other plants grow!";
         }
     }
 }

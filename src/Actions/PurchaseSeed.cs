@@ -28,9 +28,31 @@ namespace Trestlebridge.Actions
             }
             switch (choice)
             {
-                // case 1:
-                //     ChooseGrazingField.CollectInput(farm, new Sunflo());
-                //     break;
+                case 1:
+                    Console.WriteLine("Choose a field for the Sunflower");
+                    Console.WriteLine("1. Natural Field");
+                    Console.WriteLine("2. Plowed Field");
+                    var choiceInput2 = Console.ReadLine();
+                    int chosen;
+
+                    while (!(int.TryParse(choiceInput2, out chosen) && Convert.ToInt32(choiceInput2) > 0 && Convert.ToInt32(choiceInput2) < 3))
+                    {
+
+                        Console.WriteLine("Please type 1 or 2");
+                        choiceInput2 = Console.ReadLine();
+
+                    }
+                    if (chosen == 1)
+                    {
+                        ChooseNaturalField.CollectInput(farm, new Sunflower());
+                    }
+                    else if (chosen == 2)
+                    {
+                        ChoosePlowedField.CollectInput(farm, new Sunflower());
+
+                    }
+
+                    break;
                 case 2:
                     ChooseNaturalField.CollectInput(farm, new Wildflower());
                     break;

@@ -41,6 +41,8 @@ namespace Trestlebridge.Actions
                     if (farm.PlowedFields[choice - 1].GetCount < farm.PlowedFields[choice - 1].Capacity)
                     {
                         farm.PlowedFields[choice - 1].AddResource(plant);
+                        Console.WriteLine("You planted in a Plowed Field, press Enter to continue");
+                        Console.ReadLine();
                         break;
 
                     }

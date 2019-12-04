@@ -41,6 +41,8 @@ namespace Trestlebridge.Actions
                     if (farm.NaturalFields[choice - 1].GetCount < farm.NaturalFields[choice - 1].Capacity)
                     {
                         farm.NaturalFields[choice - 1].AddResource(plant);
+                        Console.WriteLine("You planted in a Natural Field, press Enter to continue");
+                        Console.ReadLine();
                         break;
 
                     }
