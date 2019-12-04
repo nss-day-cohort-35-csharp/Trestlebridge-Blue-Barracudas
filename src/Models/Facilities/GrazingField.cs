@@ -54,6 +54,13 @@ namespace Trestlebridge.Models.Facilities
                 return _animals.Count;
             }
         }
+        public int GetOstrichCount
+        {
+            get
+            {
+                return _animals.Where(animal => animal.returnAnimalType == "Ostrich").Count();
+            }
+        }
 
         public void listAnimals()
         {
