@@ -9,7 +9,7 @@ namespace Trestlebridge.Models.Facilities
 {
     public class GrazingField : IFacility<IGrazing>
     {
-        private int _capacity = 50;
+        private int _capacity = 20;
         private Guid _id = Guid.NewGuid();
 
         private List<IGrazing> _animals = new List<IGrazing>();
@@ -55,18 +55,19 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void listAnimals(){
+        public void listAnimals()
+        {
             var cowSortedList = _animals.Where(cow => cow.returnAnimalType == "Cow");
-            Console.Write($"Cows: {cowSortedList.Count()}") ;
+            Console.Write($"Cows: {cowSortedList.Count()}");
 
             var sheepSortedList = _animals.Where(sheep => sheep.returnAnimalType == "Sheep");
-            Console.Write($" Sheep: {sheepSortedList.Count()}" );
+            Console.Write($" Sheep: {sheepSortedList.Count()}");
 
             var ostrichSortedList = _animals.Where(ostrich => ostrich.returnAnimalType == "Ostrich");
-            Console.Write($" Ostriches: {ostrichSortedList.Count()}" );
+            Console.Write($" Ostriches: {ostrichSortedList.Count()}");
 
             var goatSortedList = _animals.Where(goat => goat.returnAnimalType == "Goat");
-            Console.Write($" Goats: {goatSortedList.Count()}" );
+            Console.Write($" Goats: {goatSortedList.Count()}");
 
             var pigSortedList = _animals.Where(pig => pig.returnAnimalType == "Pig");
             Console.Write($" Pigs: {pigSortedList.Count()}");
