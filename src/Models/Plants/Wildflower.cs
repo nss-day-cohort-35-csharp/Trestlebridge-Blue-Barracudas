@@ -8,6 +8,14 @@ namespace Trestlebridge.Models.Plants
         private double _compostProduced = 30.3;
         public string Type { get; } = "Wildflower";
 
+        public string returnPlantTypeNatural
+        {
+            get
+            {
+                return Type;
+            }
+        }
+
         public double GatheringCompost()
         {
             return _compostProduced;
