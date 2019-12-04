@@ -24,12 +24,10 @@ namespace Trestlebridge.Actions
 
                 for (int i = 0; i < farm.PlowedFields.Count; i++)
                 {
-                    if (farm.PlowedFields[i].GetCount != farm.PlowedFields[i].Capacity)
-                    {
-                        Console.Write($"{i + 1}. Plowed Field: Total: {farm.PlowedFields[i].GetCount} of {farm.PlowedFields[i].Capacity} (");
-                        farm.PlowedFields[i].listPlants();
-                        Console.WriteLine(")");
-                    }
+                   Console.Write($"{i + 1}. Natural Field: Total Rows: {Math.Floor(farm.PlowedFields[i].GetCount/5)} out of 13 (");
+
+                    farm.PlowedFields[i].listPlants();
+                    Console.WriteLine(")");
                 }
 
                 Console.WriteLine();
