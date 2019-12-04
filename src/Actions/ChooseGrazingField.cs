@@ -24,14 +24,12 @@ namespace Trestlebridge.Actions
 
                 for (int i = 0; i < farm.GrazingFields.Count; i++)
                 {
-<<<<<<< HEAD
-                    Console.WriteLine($"{farm.GrazingFields[i]} yeahahhahahah boiii");
-                    Console.WriteLine($"{i + 1}. Grazing Field");
-=======
-                    Console.Write($"{i + 1}. Grazing Field: Total: {farm.GrazingFields[i].GetCount} of {farm.GrazingFields[i].Capacity} (");
-                    farm.GrazingFields[i].listAnimals();
-                    Console.WriteLine(")");
->>>>>>> 97e0514f6f726c31db939ec6e08a0494b65d9cf8
+                    if (farm.GrazingFields[i].GetCount != farm.GrazingFields[i].Capacity)
+                    {
+                        Console.Write($"{i + 1}. Grazing Field: Total: {farm.GrazingFields[i].GetCount} of {farm.GrazingFields[i].Capacity} (");
+                        farm.GrazingFields[i].listAnimals();
+                        Console.WriteLine(")");
+                    }
                 }
 
                 Console.WriteLine();

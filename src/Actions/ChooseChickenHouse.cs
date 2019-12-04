@@ -24,7 +24,8 @@ namespace Trestlebridge.Actions
 
                 for (int i = 0; i < farm.ChickenHouses.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1}. Chicken House: {farm.ChickenHouses[i].GetCount} of {farm.ChickenHouses[i].Capacity})");
+                    if (farm.ChickenHouses[i].GetCount != farm.ChickenHouses[i].Capacity)
+                        Console.WriteLine($"{i + 1}. Chicken House: {farm.ChickenHouses[i].GetCount} of {farm.ChickenHouses[i].Capacity})");
                 }
 
                 Console.WriteLine();

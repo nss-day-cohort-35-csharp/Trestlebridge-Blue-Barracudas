@@ -24,11 +24,12 @@ namespace Trestlebridge.Actions
 
                 for (int i = 0; i < farm.NaturalFields.Count; i++)
                 {
-                    Console.Write($"{i + 1}. Natural Field: Total: {farm.NaturalFields[i].GetCount} of {farm.NaturalFields[i].Capacity} (");
-
-                    farm.NaturalFields[i].listPlants();
-
-                    Console.WriteLine(")");
+                    if (farm.NaturalFields[i].GetCount != farm.NaturalFields[i].Capacity)
+                    {
+                        Console.Write($"{i + 1}. Natural Field: Total: {farm.NaturalFields[i].GetCount} of {farm.NaturalFields[i].Capacity} (");
+                        farm.NaturalFields[i].listPlants();
+                        Console.WriteLine(")");
+                    }
                 }
 
                 Console.WriteLine();
