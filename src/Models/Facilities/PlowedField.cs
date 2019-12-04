@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Trestlebridge.Interfaces;
 
@@ -49,6 +50,14 @@ namespace Trestlebridge.Models.Facilities
             {
                 return _plants.Count;
             }
+        }
+        public void listPlants()
+        {
+            var sunflowerSortedList = _plants.Where(sunflower => sunflower.returnPlantTypePlowed == "Sunflower");
+            Console.Write($"Sunflower: {sunflowerSortedList.Count()} ");
+
+            var sesameSortedList = _plants.Where(sesame => sesame.returnPlantTypePlowed == "Sesame");
+            Console.Write($"Sesame: {sesameSortedList.Count()} ");
         }
     }
 }
