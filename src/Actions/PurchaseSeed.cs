@@ -38,7 +38,7 @@ namespace Trestlebridge.Actions
                     while (!(int.TryParse(choiceInput2, out chosen) && Convert.ToInt32(choiceInput2) > 0 && Convert.ToInt32(choiceInput2) < 3))
                     {
 
-                        Console.WriteLine("Please type 1 or 2");
+                        Console.WriteLine("Please type a valid number");
                         choiceInput2 = Console.ReadLine();
 
                     }
