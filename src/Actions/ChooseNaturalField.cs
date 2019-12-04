@@ -24,7 +24,7 @@ namespace Trestlebridge.Actions
 
                 for (int i = 0; i < farm.NaturalFields.Count; i++)
                 {
-                    Console.Write($"{i + 1}. Natural Field: Total: {farm.NaturalFields[i].GetCount} of {farm.NaturalFields[i].Capacity} (");
+                    Console.Write($"{i + 1}. Natural Field: Total Rows: {Math.Floor(farm.NaturalFields[i].GetCount/6)} out of 10 (");
 
                     farm.NaturalFields[i].listPlants();
 
